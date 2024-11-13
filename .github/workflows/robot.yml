@@ -35,7 +35,7 @@ jobs:
 
       # 提交更改
       - name: "Commit"
-        uses: EndBug/add-and-commit@v4
+        uses: EndBug/add-and-commit@v5
         with:
           author_name: mongorolls
           author_email: xuzhichao1618@qq.com
