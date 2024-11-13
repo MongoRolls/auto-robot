@@ -26,8 +26,8 @@ jobs:
       - name: "Commit"
         uses: EndBug/add-and-commit@v4
         with:
-          author_name: XC0703
-          author_email: 488548816@qq.com
+          author_name: mongorolls
+          author_email: xuzhichao1618@qq.com
           message: "feat: save robot"
           add: "pictures/*"
 
