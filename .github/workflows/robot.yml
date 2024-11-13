@@ -1,10 +1,10 @@
 name: autocommit-robot
 
 on:
-  # 当有 Pull Request 提交到主分支时触发
-  pull_request:
+  # 当有 push 提交到主分支时触发
+   push:
     branches:
-      - main  # 你可以根据需要指定不同的目标分支
+      - main  # 你可以根据需要指定不同的目标分支，例如 `develop`
 
   # 定时任务触发（每天 UTC 0 点）
   schedule:
