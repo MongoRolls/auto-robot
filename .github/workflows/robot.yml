@@ -39,8 +39,8 @@ jobs:
         with:
           author_name: mongorolls
           author_email: xuzhichao1618@qq.com
-          message: "feat: save robot"
+          message: "feat: save  robot"
           add: "pictures/*"  # 添加指定路径下的文件
 
         env:
-          GITHUB_TOKEN: ${{ secrets.ROBOT }}  # 使用 GitHub secret 中存储的 TOKEN
+          GITHUB_TOKEN: ${{ secrets.MONGO }}  # 使用 GitHub secret 中存储的 TOKEN
