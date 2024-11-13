@@ -43,4 +43,4 @@ jobs:
           add: "pictures/*"  # 添加指定路径下的文件
 
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}  # 使用 GitHub secret 中存储的 TOKEN
+          GITHUB_TOKEN: ${{ secrets.ROBOT }}  # 使用 GitHub secret 中存储的 TOKEN
