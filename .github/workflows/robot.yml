@@ -1,41 +1,46 @@
 name: autocommit-robot
 
 on:
+  # 当有 Pull Request 提交到主分支时触发
+  pull_request:
+    branches:
+      - main  # 你可以根据需要指定不同的目标分支
+
+  # 定时任务触发（每天 UTC 0 点）
   schedule:
-    - cron: "0 8 * * *"
-# 注意，时区为美国,大约快来8个小时
+    - cron: "0 0 * * *"  
 
 jobs:
   bots:
-    # 虚拟机环境
+    # 运行环境：Ubuntu 最新版本
     runs-on: ubuntu-latest
     steps:
-      # 获取源码 注意homepage在package配置
+      # 获取源码
       - name: "Checkout code"
         uses: actions/checkout@v3
 
-      # 构建并部署环境
+      # 设置 Node.js 环境
       - name: "Set node"
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
 
-      # 前端环境
+      # 安装依赖
       - name: "Install"
         run: npm install
 
-      # 执行
+      # 执行你的 Node.js 脚本（如果需要）
       - name: "Run bash"
         run: node index.js
 
-      # 提交
+      # 提交更改
       - name: "Commit"
         uses: EndBug/add-and-commit@v4
         with:
           author_name: mongorolls
           author_email: xuzhichao1618@qq.com
           message: "feat: save robot"
-          add: "pictures/*"
+          add: "pictures/*"  # 添加指定路径下的文件
 
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}  # 使用 GitHub secret 中存储的 TOKEN
