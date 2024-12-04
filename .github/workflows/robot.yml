@@ -19,10 +19,16 @@ jobs:
       - name: "Install"
         run: npm install
 
+      - name: "Decide to run"
+        id: decide
+        run: echo "RANDOM_NUMBER=$((RANDOM % 3))" >> $GITHUB_ENV
+
       - name: "Run bash"
+        if: env.RANDOM_NUMBER != '0'
         run: node index.js
 
       - name: "Commit"
+        if: env.RANDOM_NUMBER != '0'
         uses: EndBug/add-and-commit@v4
         with:
           author_name: mongorolls
