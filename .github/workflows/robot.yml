@@ -3,16 +3,19 @@ name: autocommit-robot
 on:
   schedule:
     - cron: "0 0 * * *"
+  workflow_dispatch:  # 允许手动触发工作流
 
 jobs:
   bots:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # 明确给予写入内容的权限
     steps:
       - name: "Checkout code"
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3  # 更新到v3
 
       - name: "Set node"
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3  # 更新到v3
         with:
           node-version: 16.x
 
@@ -23,12 +26,11 @@ jobs:
         run: node index.js
 
       - name: "Commit"
-        uses: EndBug/add-and-commit@v4
+        uses: EndBug/add-and-commit@v9  # 更新到v9
         with:
           author_name: mongorolls
           author_email: xuzhichao1618@qq.com
           message: "feat: save robot"
           add: "pictures/*"
-
         env:
           GITHUB_TOKEN: ${{ secrets.MONGO }}
