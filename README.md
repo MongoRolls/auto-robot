@@ -2,7 +2,7 @@
 
 一个每日自动提交github仓库的脚本
 
-### git action 参考资料
+### Git Action 参考资料
 
 * [ryf的git action](https://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html)
 * [辣椒 auto-commit](https://juejin.cn/post/7253673249159200825)
