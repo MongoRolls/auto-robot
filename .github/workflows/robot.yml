@@ -1,8 +1,9 @@
 name: autocommit-robot
 
 on:
-  schedule:
-    - cron: "0 0 * * *"
+  push:
+    branches:
+      - main
   workflow_dispatch:  # 允许手动触发工作流
 
 jobs:
