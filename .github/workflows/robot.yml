@@ -2,7 +2,7 @@ name: autocommit-robot
 
 on:
   schedule:
-    - cron: "0 0 * * *" # 每天0点执行,注意时区要+8
+    - cron: "0 0 */9 * *" # 每天0点执行,注意时区要+8
   push:
     branches:
       - main
