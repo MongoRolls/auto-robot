@@ -2,7 +2,7 @@ name: Snake Contrib
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 0 */3 * *"
 
   # allows to manually run the job at any time
   workflow_dispatch:
@@ -13,7 +13,7 @@ jobs:
       contents: write
     runs-on: ubuntu-latest
     timeout-minutes: 5
-
+  
     steps:
       # generates a snake game from a github user (<github_user_name>) contributions graph, output a svg animation at <svg_out_path>
       - name: generate github-contribution-grid-snake.svg
@@ -33,4 +33,4 @@ jobs:
           build_dir: dist
           keep_history: true
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
