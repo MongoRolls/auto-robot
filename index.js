@@ -2,17 +2,18 @@ const fetch = require("node-fetch");
 const path = require("path");
 const fs = require("fs");
 const https = require("https");
+const { env } = require("process");
 
 // 获取Unsplash API配置
 const UNSPLASH_API_CONFIG = {
-  accessKey: 'jVPuYBnhE6EPu3velt7izC6cwJgO2Ttk_0VvwRAr0ms',
-  searchEndpoint: 'https://api.unsplash.com/search/photos',
-  perPage: 30,
-  coverImageFolder: 'pictures',
-  imageWidth: 1200,
-  imageHeight: 630,
-  cropMode: 'entropy',
-  query: 'anime&landscape'
+    accessKey: env.UNSPLASH_ACCESS_KEY,
+    searchEndpoint: 'https://api.unsplash.com/search/photos',
+    perPage: 30,
+    coverImageFolder: 'pictures',
+    imageWidth: 1200,
+    imageHeight: 630,
+    cropMode: 'entropy',
+    query: 'landscape'
 };
 
 // 下载图片函数

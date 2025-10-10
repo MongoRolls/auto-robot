@@ -14,11 +14,12 @@ jobs:
     permissions:
       contents: write  # 明确给予写入内容的权限
     steps:
+    # 代码检出
       - name: "Checkout code"
-        uses: actions/checkout@v3  # 更新到v3
-
+        uses: actions/checkout@v3  
+    # 设置Node.js环境
       - name: "Set node"
-        uses: actions/setup-node@v3  # 更新到v3
+        uses: actions/setup-node@v3
         with:
           node-version: 16.x
 
@@ -29,12 +30,13 @@ jobs:
         run: node index.js
         env:
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
-
+     
+      # 提交github更改
       - name: "Commit"
         uses: EndBug/add-and-commit@v9  # 更新到v9
         with:
           author_name: mongorolls
-          author_email: xuzhichao1618@qq.com
+          author_email: 1467513807@qq.com
           message: "feat: save landscape photo"
           add: "pictures/*"
         env:
