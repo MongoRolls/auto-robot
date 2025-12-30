@@ -82,8 +82,10 @@ async function fetchAndSaveCoverImage(postId, query = 'technology') {
       // 构建带尺寸和裁剪参数的URL
       const imageUrl = `${rawImageUrl}&w=${UNSPLASH_API_CONFIG.imageWidth}&h=${UNSPLASH_API_CONFIG.imageHeight}&fit=crop&crop=${UNSPLASH_API_CONFIG.cropMode}`;
 
+      const timestamp = new Date().getTime(); // 获取时间戳
+      const dateStr = new Date(timestamp).toISOString().split('T')[0];
       // 下载并保存图片
-      await downloadImage(imageUrl, `${new Date().getTime()}.jpg`);
+      await downloadImage(imageUrl, `${dateStr}.jpg`);
 
   } catch (error) {
       console.error('获取Unsplash图片时出错:', error);
