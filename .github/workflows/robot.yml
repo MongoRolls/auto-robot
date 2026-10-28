@@ -33,7 +33,7 @@ jobs:
      
       # 提交github更改
       - name: "Commit"
-        uses: EndBug/add-and-commit@v9  # 更新到v9
+        uses: EndBug/add-and-commit@v11  # 更新到v9
         with:
           author_name: mongorolls
           author_email: 1467513807@qq.com
