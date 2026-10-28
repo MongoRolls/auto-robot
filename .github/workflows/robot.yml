@@ -16,7 +16,7 @@ jobs:
     steps:
     # 代码检出
       - name: "Checkout code"
-        uses: actions/checkout@v3  
+        uses: actions/checkout@v7  
     # 设置Node.js环境
       - name: "Set node"
         uses: actions/setup-node@v3
